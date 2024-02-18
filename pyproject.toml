@@ -1,0 +1,108 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastapi-blog"
+version = "0.1.0"
+description = "Blogging for FastAPI"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  {name = "Daniel Roy Greenfeld", email = "daniel@feldroy.com"},
+]
+maintainers = [
+  {name = "Daniel Roy Greenfeld", email = "daniel@feldroy.com"},
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: GNU General Public License (GPL)",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12"
+]
+license = {text = "GNU General Public License v3"}
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "jinja2",
+  "jinja2-time",
+  "pyyaml",
+  "markdown",
+  "pymdown-extensions",
+  "feedgen",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "pytest",
+]
+
+[project.urls]
+
+bugs = "https://github.com/pydanny/fastapi-blog/issues"
+changelog = "https://github.com/pydanny/fastapi-blog/blob/master/CHANGELOG.md"
+homepage = "https://github.com/pydanny/fastapi-blog"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+
+# Mypy
+# ----
+
+[tool.mypy]
+files = "."
+exclude = [
+  "tests/*"
+]
+
+# Use strict defaults
+strict = true
+warn_unreachable = true
+warn_no_return = true
+
+[[tool.mypy.overrides]]
+# Don't require test functions to include types
+module = "tests.*"
+allow_untyped_defs = true
+disable_error_code = "attr-defined"
+
+# Ruff
+# ----
+
+[tool.ruff]
+lint.select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I001"
+]
+lint.ignore = [
+    "E501",  # line too long - black takes care of this for us
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Allow unused imports in __init__ files as these are convenience imports
+"**/__init__.py" = [ "F401" ]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "project",
+    "local-folder",
+]
+
+[tool.ruff.lint.isort.sections]
+"project" = [
+    "src",
+    "tests",
+]
