@@ -11,7 +11,7 @@ from . import feeds, helpers
 
 
 env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader("templates"),
+    loader=jinja2.PackageLoader("fastapi_blog", "templates"),
     extensions=["jinja2_time.TimeExtension", "jinja2.ext.debug"],
 )
 templates = Jinja2Templates(env=env)
