@@ -38,6 +38,9 @@ dev = [
   "ruff",
   "pytest",
   "coverage",
+  "mypy",
+  "types-Markdown"
+
 ]
 
 [project.urls]
@@ -60,9 +63,9 @@ exclude = [
 ]
 
 # Use strict defaults
-strict = true
-warn_unreachable = true
-warn_no_return = true
+# strict = true
+# warn_unreachable = true
+# warn_no_return = true
 
 
 

@@ -1,0 +1,15 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<h1>{{ page.metadata.title }}</h1>
+
+{% if page.metadata.description %}
+<p><small>{{ page.metadata.description }}</small></p>
+{% endif %}
+
+{% if page.metadata.image %}
+<p><img src="{{ url_for('static', path=page.metadata.image) }}" /></p>
+{% endif %}
+
+{{ page.html|safe }}
+
+{% endblock content %}

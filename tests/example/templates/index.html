@@ -1,0 +1,17 @@
+{% set title = "Daniel Roy Greenfeld" %}
+{% extends "layout/base.html" %}
+{% block content %}
+<h1>Recent Writings</h1>
+
+{% for post in recent_3 %}
+{% include "partials/_post_short.html" %}
+{% endfor %}
+
+<h1>Favorite Articles</h1>
+
+{% for post in favorite_posts %}
+{% include "partials/_post_short.html" %}
+{% endfor %}
+
+
+{% endblock content %}

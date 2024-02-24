@@ -1,0 +1,50 @@
+<html>
+<head>
+    {% if metadata %}
+        <title>{{ metadata.title|default("Daniel Roy Greenfeld") }}</title>
+    {% elif title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Daniel Roy Greenfeld</title>
+    {% endif %}
+    <link href="{{ url_for('static', path='/normalize.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/sakura.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/pygments.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/custom.css') }}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('blog_index') }}">
+    <image
+        priority
+        src="{{ url_for('static', path='/images/profile.webp') }}"
+        height="144"
+        width="144"
+        alt="Daniel Roy Greenfeld"
+        class="borderCircle"
+        /></a>
+    <h1><a href="{{ url_for('blog_index') }}">Daniel Roy Greenfeld</a></h1>
+    <p>
+      <a href="{{ url_for('blog_posts') }}">
+        Articles
+      </a>
+      |
+      <a href="{{ url_for('blog_tags') }}">
+        Tags
+      </a>
+    </p>
+    </header>
+    <main>
+        {% block content required %}{% endblock content %}
+    </main>
+    <footer>
+        <p>
+          <a href="https://fosstodon.org/@danielfeldroy">Mastodon</a> |
+          <a href="https://www.linkedin.com/in/danielfeldroy/">LinkedIn</a> |
+          <a href="https://twitter.com/pydanny">Twitter</a> |
+          <a href="/feeds/atom.xml">Atom Feed</a>
+        </p>
+        <p>All rights reserved {% now 'utc', '%Y' %}, Daniel Roy Greenfeld</p>
+    </footer>    
+</body>
+</html>

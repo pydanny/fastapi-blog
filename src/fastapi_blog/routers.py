@@ -1,13 +1,13 @@
 import collections
 import pathlib
 
-import feeds
-import helpers
 import jinja2
-from fastapi import FastAPI, Request, Response
+from fastapi import APIRouter, Request, Response
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
+from . import feeds, helpers
 
 
 env = jinja2.Environment(
@@ -17,13 +17,12 @@ env = jinja2.Environment(
 templates = Jinja2Templates(env=env)
 
 
-app = FastAPI(docs_url="/api/docs")
+router = APIRouter()
+router.mount("/static", StaticFiles(directory="static"), name="static")
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
 
-
-@app.get("/")
-async def index(request: Request, response_class=HTMLResponse):
+@router.get("/")
+async def blog_index(request: Request, response_class=HTMLResponse):
     posts = helpers.list_posts()
     recent_3 = posts[:3]
 
@@ -42,8 +41,8 @@ async def index(request: Request, response_class=HTMLResponse):
     )
 
 
-@app.get("/posts/{slug}")
-async def post(slug: str, request: Request, response_class=HTMLResponse):
+@router.get("/posts/{slug}")
+async def blog_post(slug: str, request: Request, response_class=HTMLResponse):
     post = [x for x in filter(lambda x: x["slug"] == slug, helpers.list_posts())][0]
     content = pathlib.Path(f"posts/{slug}.md").read_text().split("---")[2]
     post["content"] = helpers.markdown(content)
@@ -53,8 +52,8 @@ async def post(slug: str, request: Request, response_class=HTMLResponse):
     )
 
 
-@app.get("/posts")
-async def posts(request: Request, response_class=HTMLResponse):
+@router.get("/posts")
+async def blog_posts(request: Request, response_class=HTMLResponse):
     posts: list[dict] = helpers.list_posts()
 
     posts.sort(key=lambda x: x["date"], reverse=True)
@@ -64,8 +63,8 @@ async def posts(request: Request, response_class=HTMLResponse):
     )
 
 
-@app.get("/tags")
-async def tags(request: Request, response_class=HTMLResponse):
+@router.get("/tags")
+async def blog_tags(request: Request, response_class=HTMLResponse):
     posts: list[dict] = helpers.list_posts()
 
     unsorted_tags: dict = {}
@@ -86,8 +85,8 @@ async def tags(request: Request, response_class=HTMLResponse):
     )
 
 
-@app.get("/tags/{tag}")
-async def tag(tag: str, request: Request, response_class=HTMLResponse):
+@router.get("/tags/{tag}")
+async def blog_tag(tag: str, request: Request, response_class=HTMLResponse):
     posts: list[dict] = helpers.list_posts()
     posts = [x for x in filter(lambda x: tag in x.get("tags", []), posts)]
 
@@ -96,15 +95,15 @@ async def tag(tag: str, request: Request, response_class=HTMLResponse):
     )
 
 
-@app.get("/feeds/{tag}.xml")
-async def feed(tag: str, request: Request, response_class=Response):
+@router.get("/feeds/{tag}.xml")
+async def blog_feed(tag: str, request: Request, response_class=Response):
     xml: str = feeds.generate_feed(tag)
 
     return Response(xml, media_type="application/xml")
 
 
-@app.get("/{slug}")
-async def page(slug: str, request: Request, response_class=HTMLResponse):
+@router.get("/{slug}")
+async def blog_page(slug: str, request: Request, response_class=HTMLResponse):
     path = pathlib.Path(f"pages/{slug}.md")
     try:
         page: dict[str, str | dict] = helpers.load_content_from_markdown_file(path)

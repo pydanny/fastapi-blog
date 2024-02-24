@@ -1,0 +1,8 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<h1>Tags: {{ tag }} ({{ posts|length() }})</h1>
+
+{% for post in posts %}
+    {% include "partials/_post_short.html" %}
+{% endfor %}
+{% endblock content %}
