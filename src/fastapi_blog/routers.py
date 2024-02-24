@@ -18,7 +18,7 @@ templates = Jinja2Templates(env=env)
 
 
 router = APIRouter()
-router.mount("/static", StaticFiles(directory="static"), name="static")
+router.mount("/static", StaticFiles(packages=[("fastapi_blog", "static")]), name="static")
 
 
 @router.get("/")
