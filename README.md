@@ -2,6 +2,14 @@
 
 A blog engine for FastAPI
 
+## Planned features
+
+- [ ] Ability to overload templates
+- [ ] Ability to overload css
+- [ ] Add standalone markdown pages
+- [ ] Possible database support
+- [ ] Documentation
+
 ## Releasing a new version
 
 ```
