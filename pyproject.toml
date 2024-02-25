@@ -17,29 +17,27 @@ maintainers = [
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "License :: OSI Approved :: GNU General Public License (GPL)",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12"
 ]
 license = {text = "GNU General Public License v3"}
 dependencies = [
-  "fastapi",
-  "uvicorn",
-  "jinja2",
-  "jinja2-time",
-  "pyyaml",
-  "markdown",
-  "pymdown-extensions",
-  "feedgen",
+  "fastapi==0.109.2",
+  "uvicorn==0.27.1",
+  "jinja2==3.1.3",
+  "jinja2-time==0.2.0",
+  "pyyamlL==6.0.1",
+  "markdown==3.5.2",
+  "pymdown-extensions==10.7",
+  "feedgen==1.0.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-  "ruff",
-  "pytest",
-  "coverage",
-  "mypy",
-  "types-Markdown"
+  "ruff==0.2.2",
+  "pytest==8.0.1",
+  "coverage==7.4.1",
+  "mypy==1.8.0",
+  "types-Markdown==3.5.0.20240129"
 
 ]
 
