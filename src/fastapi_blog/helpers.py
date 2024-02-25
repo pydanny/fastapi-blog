@@ -1,9 +1,9 @@
 import functools
 import pathlib
 
-import markdown as md  #  type: ignore[import-untyped]
+import markdown as md  # type: ignore[import-untyped]
 import yaml
-from pymdownx import emoji
+from pymdownx import emoji  # type: ignore
 
 
 @functools.lru_cache

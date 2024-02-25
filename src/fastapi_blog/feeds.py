@@ -1,7 +1,7 @@
 import pathlib
 from datetime import date
 
-from feedgen.feed import FeedGenerator
+from feedgen.feed import FeedGenerator  # type: ignore[import-untyped]
 
 from . import helpers
 

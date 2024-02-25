@@ -1,5 +1,6 @@
 import collections
 import pathlib
+from typing import Any
 
 import jinja2
 from fastapi import APIRouter, Request, Response
@@ -18,7 +19,9 @@ templates = Jinja2Templates(env=env)
 
 
 router = APIRouter()
-router.mount("/static", StaticFiles(packages=[("fastapi_blog", "static")]), name="static")
+router.mount(
+    "/static", StaticFiles(packages=[("fastapi_blog", "static")]), name="static"
+)
 
 
 @router.get("/")
@@ -32,7 +35,9 @@ async def blog_index(request: Request, response_class=HTMLResponse):
         "whats-the-best-thing-about-working-for-octopus-energy-part-1",
         "i-married-audrey-roy",
     ]
-    favorite_posts: list = filter(lambda x: x["slug"] in favorite_post_ids, posts)
+    favorite_posts: filter[dict[Any, Any]] = filter(
+        lambda x: x["slug"] in favorite_post_ids, posts
+    )
 
     return templates.TemplateResponse(
         request=request,
