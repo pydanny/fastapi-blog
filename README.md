@@ -1,6 +1,6 @@
 # FastAPI Blog README
 
-A blog engine for FastAPI
+A markdown-powered blog engine and light CMS for FastAPI.
 
 ## Planned features
 
