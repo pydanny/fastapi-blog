@@ -13,6 +13,25 @@ A simple, easy-to-use blog application built with FastAPI.
 - Sitemap
 - Docker support
 
+## Installation
+
+```bash
+pip install fastapi-blog
+```
+
+Or with Docker:
+
+```bash
+docker run -d -p 8000:8000 --name fastapi-blog ghcr.io/aroygreenfeld/fastapi-blog:latest
+```
+
+Or using the local Dockerfile:
+
+```bash
+docker build -t fastapi-blog .
+docker run -d -p 8000:8000 --name fastapi-blog fastapi-blog
+```
+
 ## Releasing a new version
 
 1. Update the version in `pyproject.toml` and `fastapi_blog/__init__.py`
