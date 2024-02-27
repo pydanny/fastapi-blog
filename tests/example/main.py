@@ -8,4 +8,4 @@ app = fastapi_blog.add_blog_to_fastapi(app)
 
 @app.get("/")
 async def index() -> dict:
-    return {"message": "Hello World"}
+    return {"message": "Check out the blog at the URL", "url": "http://localhost:8000/blog"}

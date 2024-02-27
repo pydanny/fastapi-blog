@@ -28,3 +28,6 @@ test:
 
 install:
 	pip install -e '.[dev]'
+
+run_example:
+	cd tests/example && uvicorn main:app --reload
