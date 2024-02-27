@@ -1,6 +1,17 @@
-# FastAPI Blog README
+# FastAPI Blog
 
-A markdown-powered blog engine and light CMS for FastAPI.
+A simple, easy-to-use blog application built with FastAPI.
+
+## Features
+
+- Write blog posts in Markdown
+- Syntax highlighting for code blocks
+- Responsive design
+- Dark mode
+- RSS feed
+- SEO-friendly
+- Sitemap
+- Docker support
 
 ## Releasing a new version
 
