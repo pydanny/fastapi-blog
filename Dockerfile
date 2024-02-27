@@ -25,3 +25,6 @@ RUN make test
 
 # Run the application
 RUN make run
+
+# Expose the port the app runs on
+EXPOSE 8000
