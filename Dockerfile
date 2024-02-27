@@ -23,8 +23,13 @@ RUN make install
 # Run tests
 RUN make test
 
-# Run the application
-RUN make run
+# Configure the container to run the application
+ENV PORT=8000
 
 # Expose the port the app runs on
 EXPOSE 8000
+
+# Run the application
+# RUN make run
+# CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT}
+CMD uvicorn tests.example.main:app --host 0.0.0.0 --port ${PORT}

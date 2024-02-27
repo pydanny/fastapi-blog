@@ -13,23 +13,32 @@ A simple, easy-to-use blog application built with FastAPI.
 - Sitemap
 - Docker support
 
-## Installation
+## Installation and Usage
+
+### Option 1: Local Virtualenv
+
+You can install this into a virtualenv using the pyproject.toml file:
 
 ```bash
 pip install fastapi-blog
+make run
 ```
 
-Or using the local Dockerfile:
+### Option 2: Docker (Local Dockerfile)
+
+Or into a Docker container using the local Dockerfile:
 
 ```bash
 docker build -t fastapi-blog .
-docker run -d -p 8000:8000 --name fastapi-blog fastapi-blog
+docker run -d -p 8000:8000 fastapi-blog
 ```
 
-Or use a prebuilt Docker image from GitHub Container Registry:
+### Option 3: Docker (Prebuilt)
+
+Or using a prebuilt Docker image from GitHub Container Registry:
 
 ```bash
-docker run -d -p 8000:8000 --name fastapi-blog ghcr.io/aroygreenfeld/fastapi-blog:latest
+docker run -d -p 8000:8000 ghcr.io/aroygreenfeld/fastapi-blog:latest
 ```
 
 This is if you just want to run the application without building it yourself.
