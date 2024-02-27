@@ -19,18 +19,20 @@ A simple, easy-to-use blog application built with FastAPI.
 pip install fastapi-blog
 ```
 
-Or with Docker:
-
-```bash
-docker run -d -p 8000:8000 --name fastapi-blog ghcr.io/aroygreenfeld/fastapi-blog:latest
-```
-
 Or using the local Dockerfile:
 
 ```bash
 docker build -t fastapi-blog .
 docker run -d -p 8000:8000 --name fastapi-blog fastapi-blog
 ```
+
+Or use a prebuilt Docker image from GitHub Container Registry:
+
+```bash
+docker run -d -p 8000:8000 --name fastapi-blog ghcr.io/aroygreenfeld/fastapi-blog:latest
+```
+
+This is if you just want to run the application without building it yourself.
 
 ## Releasing a new version
 
