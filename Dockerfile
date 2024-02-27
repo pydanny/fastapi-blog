@@ -19,3 +19,9 @@ RUN apk add --no-cache make
 # This installs any needed packages specified in pyproject.toml
 # as local development dependencies
 RUN make install
+
+# Run tests
+RUN make test
+
+# Run the application
+RUN make run
