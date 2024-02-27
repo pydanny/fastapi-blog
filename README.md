@@ -2,14 +2,6 @@
 
 A markdown-powered blog engine and light CMS for FastAPI.
 
-## Planned features
-
-- [ ] Ability to override templates
-- [ ] Ability to override css
-- [ ] Add standalone Markdown pages
-- [ ] Possible database support
-- [ ] Documentation
-
 ## Releasing a new version
 
 ```
