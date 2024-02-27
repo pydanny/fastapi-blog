@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
-from .routers import router
+from .router import router
 
 
 def add_blog_to_fastapi(app: FastAPI, prefix: str = "blog") -> FastAPI:
