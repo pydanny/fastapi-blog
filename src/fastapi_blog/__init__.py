@@ -19,7 +19,7 @@ def add_blog_to_fastapi(
 ) -> FastAPI:
     env = jinja2.Environment(
         loader=jinja2_loader,
-        extensions=jinja2_extensions,
+        extensions=list(jinja2_extensions),
     )
     templates = Jinja2Templates(env=env)
 
