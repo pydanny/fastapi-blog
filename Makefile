@@ -30,4 +30,13 @@ install:
 	pip install -e '.[dev]'
 
 run:
-	cd tests/example && uvicorn main:app --reload
+	make rundefaults
+
+rundefaults:
+	cd tests/example && uvicorn defaults:app --reload	
+
+runmodified_all:
+	cd tests/example && uvicorn modified_all:app --reload	
+
+runprefix_change:
+	cd tests/example && uvicorn prefix_change:app --reload		
