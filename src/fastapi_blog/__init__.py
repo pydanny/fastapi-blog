@@ -21,13 +21,14 @@ def add_blog_to_fastapi(
         "jinja2_time.TimeExtension",
         "jinja2.ext.debug",
     },
+    favorite_post_ids: set[str] = {},
 ) -> FastAPI:
     env = jinja2.Environment(
         loader=jinja2_loader,
         extensions=list(jinja2_extensions),
     )
     templates = Jinja2Templates(env=env)
-    router = get_blog_router(templates=templates)
+    router = get_blog_router(templates=templates, favorite_post_ids=favorite_post_ids)
     router_kwargs: dict[str, Any] = {"router": router, "tags": ["blog"]}
     if prefix is not None:
         router_kwargs["prefix"] = f"/{prefix}"

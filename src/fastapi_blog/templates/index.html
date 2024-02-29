@@ -7,11 +7,12 @@
 {% include "partials/_post_short.html" %}
 {% endfor %}
 
+{% if favorite_posts | length > 0 %}
 <h1>Favorite Articles</h1>
+{% endif %}
 
 {% for post in favorite_posts %}
 {% include "partials/_post_short.html" %}
 {% endfor %}
-
 
 {% endblock content %}
