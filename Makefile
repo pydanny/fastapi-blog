@@ -25,9 +25,13 @@ test:
 	coverage report -m
 	coverage html
 
+test-pdb:
+	pytest --pdb .
+
 
 install:
 	pip install -e '.[dev]'
+
 
 run:
 	make run_defaults

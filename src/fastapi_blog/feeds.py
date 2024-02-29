@@ -38,9 +38,3 @@ def generate_feed(tag: str) -> str:
         fe.content(f"<![CDATA[ { page['html'] } ]]>")
 
     return fg.atom_str(pretty=True)
-
-
-# atomfeed = fg.atom_str(pretty=True) # Get the ATOM feed as string
-# rssfeed  = fg.rss_str(pretty=True) # Get the RSS feed as string
-# fg.atom_file('atom.xml') # Write the ATOM feed to a file
-# fg.rss_file('rss.xml') # Write the RSS feed to a file

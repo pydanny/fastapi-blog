@@ -18,4 +18,3 @@ async def index() -> dict:
         "message": "Check out the blog at the URL",
         "url": "http://localhost:8000/blog",
     }
-

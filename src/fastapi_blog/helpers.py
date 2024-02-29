@@ -7,9 +7,9 @@ from pymdownx import emoji  # type: ignore
 
 
 @functools.lru_cache
-def list_posts(published: bool = True) -> list[dict]:
+def list_posts(published: bool = True, posts_dirname="posts") -> list[dict]:
     posts: list[dict] = []
-    for post in pathlib.Path(".").glob("posts/*.md"):
+    for post in pathlib.Path(".").glob(f"{posts_dirname}/*.md"):
         raw: str = post.read_text().split("---")[1]
         data: dict = yaml.safe_load(raw)
         data["slug"] = post.stem

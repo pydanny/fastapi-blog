@@ -10,7 +10,9 @@ from fastapi.templating import Jinja2Templates
 from . import feeds, helpers
 
 
-def get_blog_router(templates: Jinja2Templates, favorite_post_ids: set[str]= {}) -> APIRouter:
+def get_blog_router(
+    templates: Jinja2Templates, favorite_post_ids: set[str] = set()
+) -> APIRouter:
     router = APIRouter()
     router.mount(
         "/static", StaticFiles(packages=[("fastapi_blog", "static")]), name="static"
@@ -21,9 +23,9 @@ def get_blog_router(templates: Jinja2Templates, favorite_post_ids: set[str]= {})
         posts = helpers.list_posts()
         recent_3 = posts[:3]
 
-        favorite_posts: list[dict[Any, Any]] = list(filter(
-            lambda x: x["slug"] in favorite_post_ids, posts
-        ))
+        favorite_posts: list[dict[Any, Any]] = list(
+            filter(lambda x: x["slug"] in favorite_post_ids, posts)
+        )
 
         return templates.TemplateResponse(
             request=request,

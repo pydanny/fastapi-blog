@@ -2,6 +2,7 @@
 
 ## 0.4.0 - ???
 
+- Initial tests for helpers.py, for #10. Thanks to @pydanny!
 - Remove hardcoded favorites list, issue #13. Thanks to @pydanny!
 
 ## 0.3.0 - 2024-2-29

@@ -21,7 +21,7 @@ def add_blog_to_fastapi(
         "jinja2_time.TimeExtension",
         "jinja2.ext.debug",
     },
-    favorite_post_ids: set[str] = {},
+    favorite_post_ids: set[str] = set(),
 ) -> FastAPI:
     env = jinja2.Environment(
         loader=jinja2_loader,
