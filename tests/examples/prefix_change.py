@@ -3,7 +3,7 @@ from fastapi import FastAPI
 
 
 app = FastAPI()
-app = fastapi_blog.add_blog_to_fastapi(app, prefix="/change")
+app = fastapi_blog.add_blog_to_fastapi(app, prefix="change")
 
 
 @app.get("/")

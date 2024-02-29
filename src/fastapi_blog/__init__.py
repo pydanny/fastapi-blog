@@ -1,3 +1,5 @@
+from typing import Any
+
 import jinja2
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
@@ -11,7 +13,7 @@ __version__ = "0.3.0"
 
 def add_blog_to_fastapi(
     app: FastAPI,
-    prefix: str = "/blog",
+    prefix: str | None = "blog",
     jinja2_loader: jinja2.BaseLoader = jinja2.PackageLoader(
         "fastapi_blog", "templates"
     ),
@@ -25,9 +27,12 @@ def add_blog_to_fastapi(
         extensions=list(jinja2_extensions),
     )
     templates = Jinja2Templates(env=env)
-
     router = get_blog_router(templates=templates)
-    app.include_router(router, prefix=f"{prefix}", tags=["blog"])
+    router_kwargs: dict[str, Any] = {"router": router, "tags": ["blog"]}
+    if prefix is not None:
+        router_kwargs["prefix"] = f"/{prefix}"
+
+    app.include_router(**router_kwargs)
     app.mount(
         "/static", StaticFiles(packages=[("fastapi_blog", "static")]), name="static"
     )

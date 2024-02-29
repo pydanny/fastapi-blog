@@ -3,7 +3,7 @@ import jinja2
 from fastapi import FastAPI
 
 
-prefix = "/content"
+prefix = "content"
 django_style_jinja2_loader = jinja2.ChoiceLoader(
     [
         jinja2.FileSystemLoader("templates"),

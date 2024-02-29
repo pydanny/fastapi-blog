@@ -40,3 +40,6 @@ runmodified_all:
 
 runprefix_change:
 	cd tests/examples && uvicorn prefix_change:app --reload		
+
+runprefix_none:
+	cd tests/examples && uvicorn prefix_none:app --reload		
