@@ -8,7 +8,7 @@ from fastapi.templating import Jinja2Templates
 from .router import get_blog_router
 
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 
 
 def add_blog_to_fastapi(
