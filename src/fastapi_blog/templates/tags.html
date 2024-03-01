@@ -3,6 +3,6 @@
 <h1>Tags</h1>
 
 {% for tag, count in tags.items() %}
-  <a href="{{ url_for('blog_tag', tag=tag) }}">{{ tag }}</a> ({{ count }})
+  <a href="{{ url_for('blog_tag', tag_id=tag) }}">{{ tag }}</a> ({{ count }})
 {% endfor %}
 {% endblock content %}

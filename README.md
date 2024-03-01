@@ -148,6 +148,20 @@ async def index() -> dict:
     }
 ```
 
+### Add page not in the blog list of posts
+
+In the `pages` directory of your blog, add markdown files with frontmatter. You can then find it by going to the URL with that name. For example, adding this `pages/about.md` to the default config would make this appear at http://localhost:8000/blog/about.
+
+```markdown
+---
+title: "About Daniel Roy Greenfeld"
+description: "A little bit of background about Daniel Roy Greenfeld"
+author: "Daniel Roy Greenfeld"
+---
+
+I'm probably best known as "[pydanny](https://www.google.com/search?q=pydanny)", one of the authors of [Two Scoops of Django](/books/tech).
+```
+
 
 ## Installation and Running Example Sites
 

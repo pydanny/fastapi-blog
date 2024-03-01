@@ -33,10 +33,12 @@ def get_blog_router(
             context={"recent_3": recent_3, "favorite_posts": favorite_posts},
         )
 
-    @router.get("/posts/{slug}")
-    async def blog_post(slug: str, request: Request, response_class=HTMLResponse):
-        post = [x for x in filter(lambda x: x["slug"] == slug, helpers.list_posts())][0]
-        content = pathlib.Path(f"posts/{slug}.md").read_text().split("---")[2]
+    @router.get("/posts/{post_id}")
+    async def blog_post(post_id: str, request: Request, response_class=HTMLResponse):
+        post = [
+            x for x in filter(lambda x: x["slug"] == post_id, helpers.list_posts())
+        ][0]
+        content = pathlib.Path(f"posts/{post_id}.md").read_text().split("---")[2]
         post["content"] = helpers.markdown(content)
 
         return templates.TemplateResponse(
@@ -74,31 +76,31 @@ def get_blog_router(
             request=request, name="tags.html", context={"tags": tags}
         )
 
-    @router.get("/tags/{tag}")
-    async def blog_tag(tag: str, request: Request, response_class=HTMLResponse):
+    @router.get("/tags/{tag_id}")
+    async def blog_tag(tag_id: str, request: Request, response_class=HTMLResponse):
         posts: list[dict] = helpers.list_posts()
-        posts = [x for x in filter(lambda x: tag in x.get("tags", []), posts)]
+        posts = [x for x in filter(lambda x: tag_id in x.get("tags", []), posts)]
 
         return templates.TemplateResponse(
-            request=request, name="tag.html", context={"tag": tag, "posts": posts}
+            request=request, name="tag.html", context={"tag_id": tag_id, "posts": posts}
         )
 
-    @router.get("/feeds/{tag}.xml")
-    async def blog_feed(tag: str, request: Request, response_class=Response):
-        xml: str = feeds.generate_feed(tag)
+    @router.get("/feeds/{tag_id}.xml")
+    async def blog_feed(tag_id: str, request: Request, response_class=Response):
+        xml: str = feeds.generate_feed(tag_id)
 
         return Response(xml, media_type="application/xml")
 
-    @router.get("/{slug}")
-    async def blog_page(slug: str, request: Request, response_class=HTMLResponse):
-        path = pathlib.Path(f"pages/{slug}.md")
+    @router.get("/{page_id}")
+    async def blog_page(page_id: str, request: Request, response_class=HTMLResponse):
+        path = pathlib.Path(f"pages/{page_id}.md")
         try:
             page: dict[str, str | dict] = helpers.load_content_from_markdown_file(path)
         except FileNotFoundError:
             return templates.TemplateResponse(
                 request=request, name="404.html", status_code=404
             )
-        page["slug"] = slug
+        page["slug"] = page_id
 
         return templates.TemplateResponse(
             request=request, name="page.html", context={"page": page}

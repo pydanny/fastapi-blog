@@ -1,12 +1,12 @@
 <post>
-    <h2><a href="{{ url_for('blog_post', slug=post.slug) }}">{{ post.title }}</a></h2>
+    <h2><a href="{{ url_for('blog_post', post_id=post.slug) }}">{{ post.title }}</a></h2>
     <p>
       {% if post.description %}
       {{ post.description }}<br/>  
       {% endif %}
       <small><time datetime="{{ post.date }}">{{ post.date }}</time></small><br />
       Tags: {% for tag in post.tags %}
-        <a href="{{ url_for('blog_tag', tag=tag) }}">{{ tag }}</a>
+        <a href="{{ url_for('blog_tag', tag_id=tag) }}">{{ tag }}</a>
       {% endfor %}
     </p>
 </post>
