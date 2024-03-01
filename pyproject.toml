@@ -47,7 +47,7 @@ dev = [
 [project.urls]
 
 bugs = "https://github.com/pydanny/fastapi-blog/issues"
-changelog = "https://github.com/pydanny/fastapi-blog/blob/master/CHANGELOG.md"
+changelog = "https://github.com/pydanny/fastapi-blog/blob/master/changelog.md"
 homepage = "https://github.com/pydanny/fastapi-blog"
 
 [tool.setuptools]

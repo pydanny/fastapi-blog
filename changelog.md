@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 - ??
+
+- Inform PyPI the changelog is at changelog.md, not CHANGELOG. Thanks to @pydanny
+
 ## 0.4.0 - 2024-03-01
 
 - Document how to use pages (#3) and added sample `about.md` page. Thanks to @pydanny

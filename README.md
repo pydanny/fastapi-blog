@@ -202,6 +202,7 @@ This is if you just want to run the application without building it yourself.
 3. Build the distribution locally:
 
 ```bash
+rm -rf dist
 pip install -U build
 python -m build
 ```
