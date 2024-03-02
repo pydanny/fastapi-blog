@@ -10,7 +10,6 @@ A simple, easy-to-use blog application built with FastAPI.
 - Dark mode
 - Overloadable templates
 - [Live, working configuration examples](https://github.com/pydanny/fastapi-blog/tree/main/tests/examples)
-- RSS feed
 - SEO-friendly
 - Sitemap
 - Docker support

@@ -2,6 +2,7 @@
 
 ## 0.5.0 - ??
 
+- Remove RSS feed as it needs a complete rebuild.
 - Use uv for local installation. Thanks to @pydanny
 - Inform PyPI the changelog is at changelog.md, not CHANGELOG. Thanks to @pydanny
 

@@ -2,12 +2,12 @@ import collections
 import pathlib
 from typing import Any
 
-from fastapi import APIRouter, Request, Response
+from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from . import feeds, helpers
+from . import helpers
 
 
 def get_blog_router(
@@ -84,12 +84,6 @@ def get_blog_router(
         return templates.TemplateResponse(
             request=request, name="tag.html", context={"tag_id": tag_id, "posts": posts}
         )
-
-    @router.get("/feeds/{tag_id}.xml")
-    async def blog_feed(tag_id: str, request: Request, response_class=Response):
-        xml: str = feeds.generate_feed(tag_id)
-
-        return Response(xml, media_type="application/xml")
 
     @router.get("/{page_id}")
     async def blog_page(page_id: str, request: Request, response_class=HTMLResponse):
