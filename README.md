@@ -219,3 +219,8 @@ python -m twine upload dist/*
 git commit -am "Release for vXYZ"
 make tag
 ```
+
+## Contributors
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
