@@ -2,6 +2,7 @@
 
 ## 0.5.0 - ??
 
+- Use uv for local installation. Thanks to @pydanny
 - Inform PyPI the changelog is at changelog.md, not CHANGELOG. Thanks to @pydanny
 
 ## 0.4.0 - 2024-03-01

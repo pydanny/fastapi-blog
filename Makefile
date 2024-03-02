@@ -30,8 +30,8 @@ test-pdb:
 
 
 install:
-	pip install -e '.[dev]'
-
+	pip install uv
+	uv pip install -e '.[dev]'
 
 run:
 	make run_defaults
