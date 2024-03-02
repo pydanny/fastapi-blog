@@ -223,4 +223,21 @@ make tag
 ## Contributors
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/pydanny">
+            <img src="https://avatars.githubusercontent.com/u/62857?v=4" width="100;" alt="pydanny"/>
+            <br />
+            <sub><b>Daniel Roy Greenfeld</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/audreyfeldroy">
+            <img src="https://avatars.githubusercontent.com/u/74739?v=4" width="100;" alt="audreyfeldroy"/>
+            <br />
+            <sub><b>Audrey Roy Greenfeld</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
