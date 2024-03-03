@@ -35,6 +35,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+  "httpx",
   "ruff==0.2.2",
   "pytest==8.0.1",
   "coverage==7.4.1",
