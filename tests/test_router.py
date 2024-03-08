@@ -1,10 +1,14 @@
 import fastapi_blog
+import jinja2
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 
 app = FastAPI()
-app = fastapi_blog.add_blog_to_fastapi(app)
+# TODO - fix this to use PackageLoader
+app = fastapi_blog.add_blog_to_fastapi(
+    app, jinja2_loader=jinja2.FileSystemLoader("src/fastapi_blog/templates")
+)
 
 client = TestClient(app)
 
