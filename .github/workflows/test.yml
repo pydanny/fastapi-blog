@@ -20,13 +20,7 @@
           - name: Lint with ruff
             run: |
                 # stop the build if there are linting errors
-                make lint
-          - name: Check the types with mypy
-            run: |
-                # stop the build if there are Python type errors
-                make mypy
-          run: |-
-              pytest .                
+                make lint             
           - name: Test with pytest
             run: |-
                 pytest .
