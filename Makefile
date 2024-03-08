@@ -7,13 +7,20 @@ tag:
 	git tag -a $(VERSION) -m "Creating version $(VERSION)"
 	git push origin $(VERSION)
 
+install:
+	pip install uv
+	uv pip install -e '.[dev]'
 
-ci:
-	make ruff
+all:
+	make lint
 	make mypy
 	make test
 
-ruff:
+lint:
+	ruff check .
+	ruff format . --check
+
+format:
 	ruff check . --fix
 	ruff format .
 
@@ -27,11 +34,6 @@ test:
 
 test-pdb:
 	pytest --pdb .
-
-
-install:
-	pip install uv
-	uv pip install -e '.[dev]'
 
 run:
 	make run_defaults

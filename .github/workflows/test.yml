@@ -1,0 +1,32 @@
+---
+    name: CI
+    on: [push]
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            python-version: ['3.10', '3.11', '3.12']
+        steps:
+          - uses: actions/checkout@v3
+          - name: Set up Python ${{ matrix.python-version }}
+            uses: actions/setup-python@v4
+            with:
+              python-version: ${{ matrix.python-version }}
+          - name: Install dependencies
+            run: |
+              python -m pip install --upgrade pip
+              pip install '.[dev]'
+          - name: Lint with ruff
+            run: |
+                # stop the build if there are linting errors
+                make lint
+          - name: Check the types with mypy
+            run: |
+                # stop the build if there are Python type errors
+                make mypy
+          run: |-
+              pytest .                
+          - name: Test with pytest
+            run: |-
+                pytest .
