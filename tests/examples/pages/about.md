@@ -4,6 +4,18 @@ description: "A little bit of background about Daniel Roy Greenfeld"
 author: "Daniel Roy Greenfeld"
 ---
 
+[TOC]
+
+## Intro about me
+
+```python
+import random
+
+for i in range(10):
+    print(i)
+
+```
+
 I'm probably best known as "[pydanny](https://www.google.com/search?q=pydanny)", one of the authors of Two Scoops of Django.
 
 I love to hang out with my [wife](https://audrey.feldroy.com/), play with my [daughter](/tags/uma), do [Brazilian Jiu-Jitsu](https://academyofbrazilianjiujitsu.com/), write [books](/books), and read books. I work at [Kraken Tech](https://kraken.tech/), a company that is part of the sustainable global energy  [Octopus Energy Group](https://octopusenergy.group/) working to address [global climate change](/tags/climate-change).

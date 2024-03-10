@@ -37,6 +37,8 @@ def load_content_from_markdown_file(path: pathlib.Path) -> dict[str, str | dict]
 
 extensions = [
     "markdown.extensions.tables",
+    "toc",  # "markdown.extensions.toc
+    # "markdown.extensions.toc",
     "pymdownx.magiclink",
     "pymdownx.betterem",
     "pymdownx.tilde",
@@ -47,6 +49,11 @@ extensions = [
 ]
 
 extension_configs = {
+    "markdown.extensions.toc": {
+        "permalink": True,
+        "permalink_leading": True,
+        "title": "Tabula Rasa",
+    },
     "pymdownx.magiclink": {
         "repo_url_shortener": True,
         "repo_url_shorthand": True,
@@ -64,6 +71,12 @@ extension_configs = {
             "image_path": "https://github.githubassets.com/images/icons/emoji/unicode/",
             "non_standard_image_path": "https://github.githubassets.com/images/icons/emoji/",
         },
+    },
+    "toc": {
+        "title": "Table of Contents!",  # Title for the table of contents
+        "anchorlink": True,  # Add anchor links to the headers
+        "permalink": "# ",  # Add permanent links to the headers
+        "permalink_leading": True,  # Add permanent links to the headers
     },
 }
 

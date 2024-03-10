@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.5.0 - ??
+## 0.5.0 - 2023-03-08
 
 - Added continuous integration (#19). Thanks to @pydanny
 - Remove RSS feed as it needs a complete rebuild. Thanks to @pydanny
