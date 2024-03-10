@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0 - ??
+
+- Fix markdown issue with pygments (#22). Thanks to @pydanny
+- Add header permalinks to rendered markdown (#22). Thanks to @pydanny
+
 ## 0.5.0 - 2023-03-08
 
 - Added continuous integration (#19). Thanks to @pydanny
