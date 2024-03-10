@@ -79,7 +79,7 @@ Poetry has its own location for `urls` in the [tool.poetry.urls] table. Per the 
 changelog = "https://github.com/mygithubusername/projectname/releases"
 documentation = "https://mygithubusername.github.io/projectname/"
 issues = "https://github.com/mygithubusername/projectname/issues"
-````
+```
 
 # Example for setup.py
 
