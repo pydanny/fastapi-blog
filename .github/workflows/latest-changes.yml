@@ -27,5 +27,3 @@ jobs:
           token: ${{ secrets.REPO_TOKEN }}
           latest_changes_file: changelog.md
           latest_changes_header: '# Changelog'
-          label_header_prefix: '## '
-          debug_logs: true

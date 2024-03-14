@@ -1,11 +1,8 @@
 # Changelog
 
 * Allow for control over if statics are mounted. PR [#31](https://github.com/pydanny/fastapi-blog/pull/31) by [@pydanny](https://github.com/pydanny).
-
-## 0.6.0 - ??
-
-- Fix markdown issue with pygments (#22). Thanks to @pydanny
-- Add header permalinks to rendered markdown (#22). Thanks to @pydanny
+* Fix markdown issue with pygments (#22). Thanks to @pydanny
+* Add header permalinks to rendered markdown (#22). Thanks to @pydanny
 
 ## 0.5.0 - 2023-03-08
 
