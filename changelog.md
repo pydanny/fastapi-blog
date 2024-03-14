@@ -1,6 +1,6 @@
 # Changelog
 
-        
+* Allow for control over if statics are mounted. PR [#31](https://github.com/pydanny/fastapi-blog/pull/31) by [@pydanny](https://github.com/pydanny).
 
 ## 0.6.0 - ??
 
