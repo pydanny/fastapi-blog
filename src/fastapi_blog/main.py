@@ -19,23 +19,31 @@ def add_blog_to_fastapi(
         "jinja2.ext.debug",
     },
     favorite_post_ids: set[str] = set(),
+    mount_statics: bool = True,
 ) -> FastAPI:
+    # Prep the templates
     env = jinja2.Environment(
         loader=jinja2_loader,
         extensions=list(jinja2_extensions),
     )
     templates = Jinja2Templates(env=env)
+
+    # Router controls
     router = get_blog_router(templates=templates, favorite_post_ids=favorite_post_ids)
     router_kwargs: dict[str, Any] = {"router": router, "tags": ["blog"]}
     if prefix is not None:
         router_kwargs["prefix"] = f"/{prefix}"
-
     app.include_router(**router_kwargs)
-    app.mount(
-        path="/static",
-        app=StaticFiles(
-            directory="static", packages=[("fastapi_blog", "static")], check_dir=False
-        ),
-        name="static",
-    )
+
+    # Statics controls
+    if mount_statics is True:
+        app.mount(
+            path="/static",
+            app=StaticFiles(
+                directory="static",
+                packages=[("fastapi_blog", "static")],
+                check_dir=False,
+            ),
+            name="static",
+        )
     return app
