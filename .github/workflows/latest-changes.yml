@@ -20,9 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: docker://tiangolo/latest-changes:0.2.1
+        with:
+          token: ${{ secrets.REPO_TOKEN }}      
+      - uses: tiangolo/latest-changes@0.2.1
         with:
           token: ${{ secrets.REPO_TOKEN }}
           latest_changes_file: changelog.md
           latest_changes_header: '# Changelog'
           label_header_prefix: '## '
+          debug_logs: true
