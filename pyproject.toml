@@ -43,6 +43,9 @@ dev = [
   "types-Markdown==3.5.0.20240129",
   "types-PyYAML==6.0.12.12",
 ]
+docs = [
+  "mkdocs-material",
+]
 
 [project.urls]
 
