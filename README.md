@@ -17,7 +17,7 @@ A simple, easy-to-use blog application built with FastAPI.
 ## Basic Usage
 
 1. Import the `add_blog_to_fastapi` function
-2. Run the instantiated FastAPI app throught the `add_blog_to_fastapi` function
+2. Run the instantiated FastAPI app through the `add_blog_to_fastapi` function
 
 This all you need to do:
 
@@ -36,6 +36,28 @@ async def index() -> dict:
         "message": "Check out the blog at the URL",
         "url": "http://localhost:8000/blog",
     }
+```
+
+3. Add the first blog entry
+
+Assuming your FastAPI app is defined in a `main.py` module, create a file at `posts/first-blog-post.md`:
+
+```markdown
+---
+date: "2024-03-21T22:20:50.52Z"
+published: true
+tags:
+  - fastapi
+  - fastapi-blog
+title: First blog post
+description: This is the first blog post entry.
+---
+
+Exciting times in the world of fastapi-blog are ahead!
+
+## This is a markdown header
+
+And this is a markdown paragraph with a [link](https://github.com/pydanny/fastapi-blog).
 ```
 
 ## Advanced Usage
