@@ -19,6 +19,8 @@ def add_blog_to_fastapi(
         "jinja2.ext.debug",
     },
     favorite_post_ids: set[str] = set(),
+    posts_directory: str = "posts",
+    pages_directory: str = "pages",
     mount_statics: bool = True,
 ) -> FastAPI:
     # Prep the templates
@@ -29,7 +31,12 @@ def add_blog_to_fastapi(
     templates = Jinja2Templates(env=env)
 
     # Router controls
-    router = get_blog_router(templates=templates, favorite_post_ids=favorite_post_ids)
+    router = get_blog_router(
+        templates=templates,
+        favorite_post_ids=favorite_post_ids,
+        posts_directory=posts_directory,
+        pages_directory=pages_directory,
+    )
     router_kwargs: dict[str, Any] = {"router": router, "tags": ["blog"]}
     if prefix is not None:
         router_kwargs["prefix"] = f"/{prefix}"

@@ -11,7 +11,8 @@ from . import helpers
 
 
 def get_blog_router(
-    templates: Jinja2Templates, favorite_post_ids: set[str] = set()
+    templates: Jinja2Templates, favorite_post_ids: set[str] = set(),
+    posts_directory: str = "posts", pages_directory: str = "pages"
 ) -> APIRouter:
     router = APIRouter()
     router.mount(
