@@ -40,7 +40,7 @@ async def index() -> dict:
 
 3. Add the first blog entry
 
-Assuming your FastAPI app is defined in a `main.py` module, create a file at `posts/first-blog-post.md`:
+Assuming your FastAPI app is defined in a `main.py` module at the root of your project, create a file at `posts/first-blog-post.md`:
 
 ```markdown
 ---
@@ -59,6 +59,42 @@ Exciting times in the world of fastapi-blog are ahead!
 
 And this is a markdown paragraph with a [link](https://github.com/pydanny/fastapi-blog).
 ```
+
+4. Add the first page
+
+Assuming your FastAPI app is defined in a `main.py` module at the root of your project, create a file at `pages/about.md`:
+
+```markdown
+---
+title: "About Me"
+description: "A little bit of background about me"
+author: "Daniel Roy Greenfeld"
+---
+
+[TOC]
+
+## Intro about me
+
+I'm probably best known as "[pydanny](https://www.google.com/search?q=pydanny)", one of the authors of Two Scoops of Django.
+
+I love to hang out with my [wife](https://audrey.feldroy.com/), play with my [daughter](/tags/uma), do [Brazilian Jiu-Jitsu](https://academyofbrazilianjiujitsu.com/), write [books](/books), and read books.
+
+- [Mastodon](https://fosstodon.org/@danielfeldroy)
+- [LinkedIn](https://www.linkedin.com/in/danielfeldroy/)
+- [Twitter](https://twitter.com/pydanny)
+
+## About this site
+
+This site is written in:
+
+- Python
+- FastAPI
+- fastapi-blog
+- Sakura minimal CSS framework
+- Markdown
+- Vanilla HTML
+```
+
 
 ## Advanced Usage
 
