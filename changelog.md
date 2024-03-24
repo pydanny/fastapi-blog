@@ -1,5 +1,7 @@
 # Changelog
 
+* Posts with zero tags no longer generate errors. PR [#39](https://github.com/pydanny/fastapi-blog/pull/39) by [@pydanny](https://github.com/pydanny).
+
 ## 0.6.0 - 2023-03-24
 
 * Add tutorial for pages. PR [#36](https://github.com/pydanny/fastapi-blog/pull/36) by [@pydanny](https://github.com/pydanny).
