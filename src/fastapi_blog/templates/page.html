@@ -7,7 +7,7 @@
 {% endif %}
 
 {% if page.metadata.image %}
-<p><img src="{{ url_for('static', path=page.metadata.image) }}" /></p>
+<p><img src="/static/{{ page.metadata.image }}" /></p>
 {% endif %}
 
 {{ page.html|safe }}

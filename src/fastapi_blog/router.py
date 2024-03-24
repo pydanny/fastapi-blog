@@ -4,7 +4,6 @@ from typing import Any
 
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from . import helpers
@@ -14,9 +13,6 @@ def get_blog_router(
     templates: Jinja2Templates, favorite_post_ids: set[str] = set()
 ) -> APIRouter:
     router = APIRouter()
-    router.mount(
-        "/static", StaticFiles(packages=[("fastapi_blog", "static")]), name="static"
-    )
 
     @router.get("/")
     async def blog_index(request: Request, response_class=HTMLResponse):
