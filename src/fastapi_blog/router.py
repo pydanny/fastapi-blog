@@ -61,7 +61,8 @@ def get_blog_router(
 
         unsorted_tags: dict = {}
         for post in posts:
-            for tag in post.get("tags", []):
+            page_tags = post.get("tags", []) or []
+            for tag in page_tags:
                 if tag in unsorted_tags:
                     unsorted_tags[tag] += 1
                 else:
