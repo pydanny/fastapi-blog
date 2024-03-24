@@ -71,8 +71,6 @@ description: "A little bit of background about me"
 author: "Daniel Roy Greenfeld"
 ---
 
-[TOC]
-
 ## Intro about me
 
 I'm probably best known as "[pydanny](https://www.google.com/search?q=pydanny)", one of the authors of Two Scoops of Django.
@@ -100,6 +98,28 @@ This site is written in:
 
 fastapi_blog is configurable through the `add_blog_to_fastapi` function.
 
+### Adding app-controlled static media
+
+Change the main app to mount StaticFiles:
+
+```python
+from fastapi_blog import add_blog_to_fastapi
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
+
+app = FastAPI()
+app = add_blog_to_fastapi(app)
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/")
+async def index() -> dict:
+    return {
+        "message": "Check out the blog at the URL",
+        "url": "http://localhost:8000/blog",
+    }
+```
+
 ### Replacing the default templates
 
 This example is Django-like in that your local templates will overload the default ones.
@@ -108,6 +128,7 @@ This example is Django-like in that your local templates will overload the defau
 import fastapi_blog
 import jinja2
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 
 django_style_jinja2_loader = jinja2.ChoiceLoader(
@@ -121,6 +142,7 @@ app = FastAPI()
 app = fastapi_blog.add_blog_to_fastapi(
     app, prefix=prefix, jinja2_loader=django_style_jinja2_loader
 )
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.get("/")

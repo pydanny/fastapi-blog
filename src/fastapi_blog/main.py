@@ -2,7 +2,6 @@ from typing import Any
 
 import jinja2
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from .router import get_blog_router
@@ -35,15 +34,4 @@ def add_blog_to_fastapi(
         router_kwargs["prefix"] = f"/{prefix}"
     app.include_router(**router_kwargs)
 
-    # Statics controls
-    if mount_statics is True:
-        app.mount(
-            path="/static",
-            app=StaticFiles(
-                directory="static",
-                packages=[("fastapi_blog", "static")],
-                check_dir=False,
-            ),
-            name="static",
-        )
     return app
