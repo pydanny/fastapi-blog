@@ -1,5 +1,6 @@
 # Changelog
 
+* Add tutorial for pages. PR [#36](https://github.com/pydanny/fastapi-blog/pull/36) by [@pydanny](https://github.com/pydanny).
 * Add tutorial for blog entries. PR [#35](https://github.com/pydanny/fastapi-blog/pull/35) by [@pydanny](https://github.com/pydanny).
 * Allow for control over if statics are mounted. PR [#31](https://github.com/pydanny/fastapi-blog/pull/31) by [@pydanny](https://github.com/pydanny).
 * Fix markdown issue with pygments (#22). Thanks to @pydanny
